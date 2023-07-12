@@ -44,3 +44,24 @@ function getNextCard() {
   return deck.shift();
 }
 
+//function to calculate hand
+function getHandScore(hand) {
+  let score = 0
+  let hasAce = false
+
+//function which allows ace to be a 1 or 11
+for (let card of hand) {
+  let rank = card.split(' ')[0];
+  if (rank === 'A') {
+    score += 11;
+    hasAce = true
+  }
+  else if (['K', 'Q', 'J'].includes(rank)) {
+    score += 10;
+  }
+  else{
+    score += parseInt(rank);
+  }
+}
+
+
