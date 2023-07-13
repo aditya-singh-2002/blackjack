@@ -1,4 +1,4 @@
-/define cards
+//define cards
 let deck = [];
 const suits= ['Hearts, 'Diamonds, 'Clubs', 'Spades'];
 const ranks= ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
@@ -85,5 +85,27 @@ function hit() {
 }
 
 //function for standing
+function stand() {
+  if (!gameOver) {
+    document.getElementById('dealer-hand').textContent = 'Dealer Hand: ' + dealerHand.join(', ');
 
+    while (dealerScore < 17){
+      dealerHand.push(getNextCard());
+      dealerScore = getHandScore(dealerHand);
+      document.getElementById('dealer-hand').textContent = 'Dealer Hand: ' + dealerHand.join(', ');
+    }
+
+    if (dealerScore > 21 || dealerScore < playerScore) {
+      document.getElementById('result').textContent = 'You Win!';
+    } else if (dealerScore > playerScore) {
+      document.getElementById('result').textContent = 'Dealer Wins!';
+    } else {
+      document.getElementById('result').textContent = 'Push! It\'s a tie!';
+    }
+
+    gameOver = true
+  }
+}
+
+    
 
