@@ -103,6 +103,3 @@ function stand() {
     gameOver = true;
   }
 }
-
-    
-
