@@ -1,8 +1,8 @@
 # Blackjack
 
-Blackjack is a **free, simplified replica** of the real-life casino banking game.
+Blackjack is a **free, simplified replica** of the real-life casino banking game
 
-This version of Blackjack allows you to play games repeatedly without the risk of betting real money. 
+This version of Blackjack allows you to play games repeatedly without the risk of betting real money 
 
 **Screenshot**
 ![game](/blackjack.png)
@@ -17,7 +17,7 @@ This version of Blackjack allows you to play games repeatedly without the risk o
 
 **Current Version v1.1 (7/13/2023)**
 
-The idea of this project was not only to create functionality of BlackJack using Javascript but to simulate gameplay, including shuffling the deck, dealing cards to the player and dealer, calculating hand scores, and determining the game's outcome.
+The idea of this project was not only to create functionality of BlackJack using Javascript but to simulate gameplay, including shuffling the deck, dealing cards to the player and dealer, calculating hand scores, and determining the game's outcome
 
 **Planned Updates for v1.2**
 - Create a poker table with a digital image
