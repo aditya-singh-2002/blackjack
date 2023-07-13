@@ -5,7 +5,7 @@ Blackjack is a **free, simplified replica** of the real-life casino banking game
 This version of Blackjack allows you to play games repeatedly without the risk of betting real money. 
 
 **Screenshot**
-![game](/blackjack.PNG)
+![game](/blackjack.png)
 
 ### How to Use
 1. Press **Start Game**
