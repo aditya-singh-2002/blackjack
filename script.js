@@ -1,11 +1,11 @@
 //define cards
 let deck = [];
-const suits= ['Hearts, 'Diamonds, 'Clubs', 'Spades'];
-const ranks= ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
-for (let suit of suits){
-  for (let rank of ranks){
-    let card= rank + ' ' + suit;
+for (let suit of suits) {
+  for (let rank of ranks) {
+    let card = rank + ' ' + suit;
     deck.push(card);
   }
 }
@@ -17,7 +17,7 @@ let dealerScore = 0;
 let gameOver = false;
 
 //function to start game
-function startGame(){
+function startGame() {
   deck = shuffleDeck(deck);
   playerHand = [getNextCard(), getNextCard()];
   dealerHand = [getNextCard(), getNextCard()];
@@ -25,14 +25,14 @@ function startGame(){
   dealerScore = getHandScore(dealerHand);
   gameOver = false;
 
-document.getElementById('result').textContent = ' ';
-document.getElementById('player-hand').textContent = 'Player Hand: ' + playerHand.join(',');
-document.getElementByID('dealer-hand').textContent = 'Dealer Hand: ' + dealerHand[0] + ', _ ';
+  document.getElementById('result').textContent = '';
+  document.getElementById('player-hand').textContent = 'Player Hand: ' + playerHand.join(', ');
+  document.getElementById('dealer-hand').textContent = 'Dealer Hand: ' + dealerHand[0] + ' _';
 }
 
 //function to shuffle the deck
-function shuffle(deck) {
-  for (let i = deck.length -1; i > 0; i--) {
+function shuffleDeck(deck) {
+  for (let i = deck.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [deck[i], deck[j]] = [deck[j], deck[i]];
   }
@@ -46,26 +46,24 @@ function getNextCard() {
 
 //function to calculate hand
 function getHandScore(hand) {
-  let score = 0
-  let hasAce = false
+  let score = 0;
+  let hasAce = false;
 
 //function which allows ace to be a 1 or 11
 for (let card of hand) {
   let rank = card.split(' ')[0];
   if (rank === 'A') {
     score += 11;
-    hasAce = true
-  }
-  else if (['K', 'Q', 'J'].includes(rank)) {
+    hasAce = true;
+  } else if (['K', 'Q', 'J'].includes(rank)) {
     score += 10;
-  }
-  else{
+  } else {
     score += parseInt(rank);
   }
 }
 
 if (score > 21 && hasAce) {
-  score -=10
+  score -= 10;
 }
   return score;
 }
@@ -78,7 +76,7 @@ function hit() {
     document.getElementById('player-hand').textContent = 'Player Hand: ' + playerHand.join(',');
 
     if (playerScore > 21) {
-      gameoOver = true;
+      gameOver = true;
       document.getElementById('result').textContent = 'You Bust! Dealer Wins!';
     }
   }
@@ -87,9 +85,8 @@ function hit() {
 //function for standing
 function stand() {
   if (!gameOver) {
-    document.getElementById('dealer-hand').textContent = 'Dealer Hand: ' + dealerHand.join(', ');
 
-    while (dealerScore < 17){
+    while (dealerScore < 17) {
       dealerHand.push(getNextCard());
       dealerScore = getHandScore(dealerHand);
       document.getElementById('dealer-hand').textContent = 'Dealer Hand: ' + dealerHand.join(', ');
@@ -103,7 +100,7 @@ function stand() {
       document.getElementById('result').textContent = 'Push! It\'s a tie!';
     }
 
-    gameOver = true
+    gameOver = true;
   }
 }
 
