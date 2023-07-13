@@ -85,7 +85,8 @@ function hit() {
 //function for standing
 function stand() {
   if (!gameOver) {
-
+    document.getElementById('dealer-hand').textContent = 'Dealer Hand: ' + dealerHand.join(', ');
+    
     while (dealerScore < 17) {
       dealerHand.push(getNextCard());
       dealerScore = getHandScore(dealerHand);
