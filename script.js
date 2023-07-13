@@ -64,4 +64,26 @@ for (let card of hand) {
   }
 }
 
+if (score > 21 && hasAce) {
+  score -=10
+}
+  return score;
+}
+
+//function for hitting
+function hit() {
+  if (!gameOver) {
+    playerHand.push(getNextCard());
+    playerScore = getHandScore(playerHand);
+    document.getElementById('player-hand').textContent = 'Player Hand: ' + playerHand.join(',');
+
+    if (playerScore > 21) {
+      gameoOver = true;
+      document.getElementById('result').textContent = 'You Bust! Dealer Wins!';
+    }
+  }
+}
+
+//function for standing
+
 
